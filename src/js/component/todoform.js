@@ -1,21 +1,25 @@
-import React, {useSate} from "react";
+import React, {useState} from "react";
 
 function TodoForm (props) {
-  const [text, setText] = useSate ("");
+  const [text, setText] = useState ("");
 
   const HandleSubmit = (e) => {
-    e.preventDefault ("");
+    e.preventDefault ();
     if (text.trim()) {
         props.addTodo(text);
         setText('');
       }
   }
   return (
-    <form onSubmit={HandleSubmit}> 
-    <input type="text" value={text} 
+ 
+    <div id="format"  style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+    <form style={{margin: "5hv"}} onSubmit={HandleSubmit}> 
+    <input  type="text" value={text} 
     onChange={(e) => setText (e.target.value)} placeholder="What is my next task?"/>
-    <button type="submit"> Add to List </button>
+    <button className="button" type="submit"> Add to List </button>
     </form>
+    </div>
+
 
 )
 };

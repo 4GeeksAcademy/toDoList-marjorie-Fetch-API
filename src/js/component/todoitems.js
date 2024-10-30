@@ -1,14 +1,14 @@
 import React from "react";
 
-function TodoItems (){
+function TodoItems (props){
     const {todo, toggleComplete, removeTodo} = props;
  
     return (
-        <li style= {{ textDecoration: todo.completed ? "line-through" : "none" }}> 
-        <input type="checkbox" checked={todo.completed} onChange={() => toggleComplete (todo.id)}/>
+        <lu> 
+        <input style={{ display: 'flex', justifyContent: 'center'}} type="checkbox"  onChange={() => toggleComplete (todo.id)}/>
         {todo.text}
-        
-        </li>
+        <button onClick={() => removeTodo(todo.id)}>Remove</button>
+        </lu>
 
     );
 }
