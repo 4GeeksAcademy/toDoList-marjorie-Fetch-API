@@ -6,7 +6,7 @@ function TodoItems (props){
     return (
         <lu> 
         <input style={{ display: 'flex', justifyContent: 'center'}} type="checkbox"  onChange={() => toggleComplete (todo.id)}/>
-        {todo.text}
+        {todo.label}
         <button onClick={() => removeTodo(todo.id)}>Remove</button>
         </lu>
 
