@@ -12,19 +12,22 @@ function Login (props) {
 
    }
 
-
    return (
-    <div className="">
-        <input placeholder="Username" onChange={(e) => setUsernameInput(e.target.value)} />
-
-        <input placeholder="Password" onChange={(e) => setPwInput(e.target.value)}/>
-        
-        <button onClick={handleLogin}>Submit </button>
-    </div>
+	<div className="login-container">
+		<input placeholder="Username" onChange={(e) => setUsernameInput(e.target.value)} />
+		<input type="password" placeholder="Password" onChange={(e) => setPwInput(e.target.value)} />
+		<button onClick={handleLogin}>Submit</button>
+		
+	</div>
 );
+
 };
 
 
 
 
 export default Login;
+
+
+
+
