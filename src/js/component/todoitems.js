@@ -1,12 +1,12 @@
 import React from "react";
 
 function TodoItems(props) {
-    const { todo, toggleComplete, removeTodo } = props;
+    const { todo, taskComplete, removeTodo } = props;
 
     return (
         <lu>
             <button
-                onClick={() => props.toggleComplete(todo)}
+                onClick={() => taskComplete(todo)}
             >Completed</button>
             {todo.label}
             <button onClick={() => {

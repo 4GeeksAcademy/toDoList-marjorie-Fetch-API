@@ -11,7 +11,7 @@ function TodoList(props) {
             <TodoItems
                key={todo.id}
                todo={todo}
-               toggleComplete={props.toggleComplete}
+               taskComplete={props.taskComplete}
                removeTodo={props.removeTodo} />
          )
          }

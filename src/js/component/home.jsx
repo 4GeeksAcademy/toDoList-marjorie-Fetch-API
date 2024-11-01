@@ -32,11 +32,9 @@ function Home() {
 			.then((res) => res.json())
 			.then(jsonifiedData => setTodos(jsonifiedData.todos))
 			.catch((err) => console.log(err));
-	}
+	};
 
-	useEffect(() => {
-		getFetch()
-	}, []);
+
 
 
 	const addTodo = (label) => {
@@ -45,30 +43,23 @@ function Home() {
 	};
 
 
-	const toggleComplete = (todo) => {
-		setTodos(
-			todos.map(todo =>
-				todo.id === id ? { ...todo, is_done: !todo.is_done } : todo // updated for is_done
-			)
-		);
+	const taskComplete = (todo) => {
+		fetch("https://playground.4geeks.com/todo/todos/" + todo.id, {
+			method: 'PUT',
+			body: JSON.stringify({
+				"label": todo.label,
+				"is_done": true
+			}),
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		})
+			.then((response) => response.json())
+			.then((jsonifiedData) => getFetch())
+			.catch((err) => console.log(err))
 
-		if (toggleChecked) {
-			fetch("https://playground.4geeks.com/todo/todos/" + id, {
-				method: 'PUT',
-				body: JSON.stringify({
-					"label": todo.label,
-					"is_done": true
-				}),
-				headers: {
-					'Content-Type': 'application/json'
-				}
-			})
-				.then((response) => response.json())
-				.then((jsonifiedData) => getFetch())
-				.catch((err) => console.log(err))
-
-		}
 	};
+
 
 
 
@@ -91,6 +82,9 @@ function Home() {
 		}
 	};
 
+	useEffect(() => {
+		getFetch()
+	}, []);
 
 
 	return (
@@ -102,7 +96,7 @@ function Home() {
 					<TodoList
 						todos={todos}
 						postTodo={postTodo}
-						toggleComplete={toggleComplete}
+						taskComplete={taskComplete}
 						removeTodo={removeTodo}
 					/>
 				</div>
