@@ -13,9 +13,10 @@ function TodoForm(props) {
         <button className="button"
           onClick={(e) => {
             e.preventDefault();
-            props.postTodo(text)
+            props.postTodo(text); 
           }}
           type="text"> Add to List </button>
+
       </div>
     </div>
 
